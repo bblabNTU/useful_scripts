@@ -2,15 +2,23 @@
 
 # Author: chuck00lin
 # Date: 2023-6-18
-# Description: version-1.0 
+# Description: version-1.1
 
 set -e
 
 # Specify the mount point for the USB drive
 mount_point="/mnt/usb"
 
-# Specify the document folder to copy from
-document_folder="/home/bblab/Documents/tmp"
+# Specify the default document folder to copy from
+default_document_folder="/home/$USER/Documents/tmp"
+
+# Ask the user to specify the copy path
+read -p "Please specify the source path for the file copy (press enter for default: $default_document_folder): " document_folder
+
+# If the user didn't provide input, use the default
+if [[ -z "$document_folder" ]]; then
+    document_folder=$default_document_folder
+fi
 
 function check_mount {
     # Check if the USB drive is already mounted
@@ -50,7 +58,7 @@ function mount_drive {
 
 function copy_files {
     # Copy files from the document folder to the USB drive
-    echo "Copying files..."
+    echo "Copying files from $document_folder ..."
     cp -rv "$document_folder"/* "$mount_point" && echo "Files copied successfully." || { echo "File copy failed. USB drive remains mounted."; exit 1; }
 }
 
