@@ -59,7 +59,7 @@ function mount_drive {
 function copy_files {
     # Copy files from the document folder to the USB drive
     echo "Copying files from $document_folder ..."
-    cp -rv "$document_folder"/* "$mount_point" && echo "Files copied successfully." || { echo "File copy failed. USB drive remains mounted."; exit 1; }
+    sudo cp -rv "$document_folder"/* "$mount_point" && echo "Files copied successfully." || { echo "File copy failed. USB drive remains mounted."; exit 1; }
 }
 
 function unmount_drive {
