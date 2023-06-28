@@ -23,4 +23,5 @@ shrink your image
 `chmod +x ./pishrink.sh`
 2. execute (select your image):
 `sudo ./pishrink.sh -v ./UAV0605_mavros-and-realsense.img`
+
 author:https://github.com/Drewsif/PiShrink
