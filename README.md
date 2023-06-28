@@ -14,7 +14,7 @@ chmod +x ./mount_and_copy.sh
 ```
 > so far you need to edit mount point and copy path manually
 
-## 2. pi image shrink.sh
+## 2. pi image shrink.sh (v 1.13)
 
 usage:
 shrink your image
